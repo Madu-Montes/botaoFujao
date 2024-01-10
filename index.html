@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@200;300&display=swap"
+        rel="stylesheet">
+    <title>Te amo!</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e66969;
+            text-align: center;
+
+        }
+
+        .painel {
+            background-color: #fff;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            margin-top: 3%;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-family: 'Indie Flower', cursive;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #b83737;
+        }
+
+        #sim {
+            height: 45px;
+            width: 80px;
+            background-color: #ca4c4c;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            margin-left: -80px;
+        }
+
+        #nao {
+            position: absolute;
+            height: 45px;
+            width: 80px;
+            background-color: #ca4c4c;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        #textoAceitas {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="painel">
+        <h1 class="texto">Feliz dia dos Namorados!</h1>
+        <img id="imgPrimaria" src="hellokitty.gif">
+        <img id="imagemAceito" src="flores.jpg" style="display: none; width: 50%; margin-left: 25%;">
+        <h2 class="texto">Aceitas?</h2>
+        <h2 id="textoAceitas">thubiraum daum daum</h2>
+
+
+        <button onclick="aceito()" id="sim"> Sim! </button></a>
+        <button onmouseover="fuja()" id="nao"> Não! </button>
+
+
+    </div>
+    <script>
+
+        function fuja() {
+            var botaoNao = document.getElementById("nao")
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+        function aceito() {
+            document.getElementById('imgPrimaria').style.display = 'none';
+            document.getElementById('sim').style.display = 'none';
+            document.getElementById('nao').style.display = 'none';
+            var elementosTexto = document.getElementsByClassName('texto');
+            for (var i = 0; i < elementosTexto.length; i++) {
+                elementosTexto[i].style.display = 'none';
+            }
+            document.getElementById("imagemAceito").style.display = "block";
+            document.getElementById("textoAceitas").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
